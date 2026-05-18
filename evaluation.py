@@ -27,7 +27,7 @@ def calculate_metrics(genuine_scores, imposter_scores, method_name):
     std_gen = np.std(genuine_scores)
     std_imp = np.std(imposter_scores)
 
-    d_prime = abs(mu_gen - mu_imp) / np.sqrt(0.5 * (std_gen ** 2 + std_imp ** 2))
+    d_prime = abs(mu_gen - mu_imp) / np.sqrt(0.5 * (std_gen ** 2 + std_imp ** 2)) 
 
     # 2. ROC and EER
     # We use -scores because roc_curve expects 'similarity' or 'probability'
@@ -43,6 +43,8 @@ def calculate_metrics(genuine_scores, imposter_scores, method_name):
     # TMR at 1% FMR (0.01) and 0.1% FMR (0.001)
     tmr_at_1 = interp1d(fpr, tpr)(0.01)
     tmr_at_01 = interp1d(fpr, tpr)(0.001)
+
+
 
     # 4. Plot ROC
     plt.figure()
